@@ -1,0 +1,28 @@
+# Dependencies
+markdown:            redcarpet
+highlighter:         pygments
+
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+
+# Setup
+title:               "lcat`s"
+tagline:             "龙腾虎跃"
+description:         "大浪淘金"
+url:                 /
+baseurl:             /
+paginate:            10
+
+# About/contact
+author:
+  name:              lcat
+  github:            lcat
+  disqus:            lcat
+  duoshuo:           lcat-jekyll
+  weibo:             longthuy
+
+# redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough"]

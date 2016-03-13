@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="lcat blog sinasae sae 前端开发" />
+    <meta name="description" content="welcome to lcat`s world" />
+    <title>lcat | 前端菜鸟，努力学习中</title>
+    <link rel="stylesheet" href="/public/libs/base.min.css" />
+    <style>
+    html {
+        height: 100%;
+    }
+    body {
+        background-image: url('/public/index/texture.png');
+        -webkit-transition: background-color 2s ease-in;
+        padding: 0;
+        text-align: center;
+        font-family: 'open sans';
+        position: relative;
+        margin: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+    .wrapper {
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    ul, li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+    h1,
+    h2 {
+        width: 100%;
+        float: left;
+    }
+    h1 {
+        margin-top: 100px;
+        color: #555;
+        margin-bottom: 5px;
+    }
+    h2 {
+        color: #999;
+        font-weight: 100;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .pointer {
+        color: #34495e;
+        font-family: 'Pacifico', cursive;
+        font-size: 22px;
+        margin-top: -15px;
+    }
+    .wheel-button,
+    .wheel-button:visited {
+        line-height: 35px;
+        font-weight: bold;
+        font-size: 36px;
+        background: url('/public/logo/logo.png') 0 0 no-repeat;
+        text-align: center;
+        border-radius: 50px;
+        width: 120px;
+        height: 120px;
+        color: white;
+        display: block;
+        margin: 18% auto 20px;
+    }
+    .wheel-button:hover {
+        color: white;
+    }
+    .wheel-button.ne {
+        border-color: white;
+        background: #1ABC9C;
+        color: #34FFFF;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+    }
+    .wheel-button.nw {
+        border-color: white;
+        background-color: #E67E22;
+        color: #FFFC44;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+    .wheel-button span,
+    .wheel span {
+        position: relative;
+        -moz-transition: all 1s ease;
+        -webkit-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        transition: all 1s ease;
+        display: block;
+    }
+    .wheel-button.active span {
+        transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+        /* IE 9 */
+        
+        -webkit-transform: rotate(135deg);
+        /* Safari and Chrome */
+    }
+    .wheel li a,
+    .wheel li a:visited {
+        font-weight: bold;
+        text-indent: -999em;
+        width: 32px;
+        height: 32px;
+        /*box-shadow: 0 1px 2px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.5);
+      -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.5);
+      -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.5);*/
+        
+        color: white;
+        -moz-transition: all 0.25s ease;
+        -webkit-transition: all 0.25s ease;
+        -o-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+    }
+    .wheel li a:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+    .wheel li a.weibo {
+        background: url(/public/index/weibo.png) 0 0 no-repeat
+    }
+    .wheel li a.github {
+        background: url(/public/index/github.png) 0 0 no-repeat
+    }
+    .wheel li a.qq {
+        background: url(/public/index/qq.png) 0 0 no-repeat
+    }
+    .wheel li a.wordpress {
+        background: url(/public/index/wordpress.png) 0 0 no-repeat
+    }
+    .main {
+        float: left;
+        width: 100%;
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+    }
+    .reload,
+    .btn {
+        display: inline-block;
+        border: 4px solid #FFF;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        background: rgba(255, 255, 255, 0.75);
+        display: inline-block;
+        line-height: 100%;
+        padding: 0.7em;
+        text-decoration: none;
+        opacity: 0.7;
+        color: #555;
+        width: 100px;
+        line-height: 140%;
+        font-size: 17px;
+        font-family: open sans;
+        font-weight: bold;
+    }
+    .reload:hover,
+    .btn:hover {
+        background: white;
+    }
+    .btn {
+        width: 200px;
+    }
+    .btns {
+        width: 230px;
+        margin: 50px auto;
+    }
+    .credit {
+        text-align: center;
+        color: #999;
+        padding: 10px;
+        margin: 0 0 40px 0;
+        background: rgba(255, 255, 255, 0.25);
+        float: left;
+        width: 100%;
+    }
+    .credit a {
+        color: #555;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    html,
+    body {
+        margin: 0;
+    }
+    canvas {
+        display: block;
+        vertical-align: bottom;
+    }
+    #particles-js {
+        height: 100%;
+        background: #222
+    }
+    .nipponcolor {
+        text-align: center;
+        font-family: "PT Serif", Georgia, "Times New Roman", serif, "Microsoft JhengHei", "Microsoft YaHei", "STXihei", "WenQuanYi Micro Hei";
+        background: #222;
+        width: 250px;
+        position: absolute;
+        bottom: 16px;
+        color: #fff;
+        opacity: 0.6;
+        line-height: 40px;
+        border-radius: 2px;
+        font-size: 20px;
+        left: 50%;
+        margin-left: -125px;
+
+    }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/public/gallery/wheelmenu.css" />
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <a href="https://github.com/lcat/nippon-colors" class="nipponcolor"></a>
+    <div class="main">
+        <a href="#wheel" class="wheel-button">
+            <span></span>
+        </a>
+        <div class="pointer">Hello World</div>
+        <ul id="wheel" data-angle="NE">
+            <li class="item"><a class="weibo" title="weibo" target="_blank" href="http://weibo.com/longthuy"></a>
+            </li>
+            <li class="item"><a class="github" title="github" target="_blank" href="https://github.com/lcat"></a>
+            </li>
+            <li class="item"><a class="qq" title="qq" href="#qq"></a>
+            </li>
+            <li class="item"><a class="wordpress" title="wordpress" href="http://lcat.me/"></a>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/public/gallery/jquery.wheelmenu.min.js"></script>
+    <script src="http://cdn.staticfile.org/jquery-color/2.1.2/jquery.color.min.js"></script>
+    <script src="/public/gallery/particles.js"></script>
+    <script>
+    // 进度条 v1
+    $(document).ready(function() {
+        $(".wheel-button").wheelmenu({
+            trigger: "hover",
+            animation: "fly",
+            animationSpeed: "fast"
+        });
+    });
+
+    // menu  v1
+    $('body').show();
+
+    // 随机背景  v2
+    $.getJSON('/public/gallery/nipponcolor.json', function(data) {
+
+        var bgSetTimeOut = setInterval(function() {
+            random();
+        }, 10000)
+
+        function random() {
+            var randomNum;
+            randomNum = Math.random();
+            randomNum = Math.round(randomNum * 250);
+
+            var randomColor = '#' + data[randomNum].color;
+            $('.nipponcolor').html(data[randomNum].name + '-' + data[randomNum].cname);
+            $('#particles-js').animate({
+                backgroundColor: randomColor
+            }, 3000)
+        }
+
+    })
+
+    // background  v3
+    particlesJS('particles-js', {
+        particles: {
+            color: '#fff',
+            shape: 'circle',
+            opacity: 1,
+            size: 2.5,
+            size_random: true,
+            nb: 100,
+            line_linked: {
+                enable_auto: true,
+                distance: 350,
+                color: '#fff',
+                opacity: 0.5,
+                width: 1,
+                condensed_mode: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 600
+                }
+            },
+            anim: {
+                enable: true,
+                speed: 2
+            }
+        },
+        interactivity: {
+            enable: true,
+            mouse: {
+                distance: 200
+            },
+            mode: 'grab'
+        },
+        retina_detect: true
+    });
+    </script>
+</body>
+
+</html>
