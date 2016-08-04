@@ -49,4 +49,4 @@ function parseData() {
 
 ```
 
-通过glob可以匹配所有或者某些模块，同理页可以统计出某个多语言namespace有哪几个页面在用。
+通过glob可以匹配所有或者某些模块，同理也可以统计出某个多语言namespace有哪几个页面在用。
