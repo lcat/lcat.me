@@ -4,6 +4,8 @@ title: nodejs glob
 tags: [nodejs, glob]
 ---
 
+[上一篇](http://lcat.me/2016/01/11/webpack%E5%85%A5%E9%97%A8/)
+
 最近在开发多语言，多语言是通过指令 #translation('common.index', '首页')服务端解析的时候翻译
 
 指令两个参数，第一个参数是namespace，第二个参数是缺省时默认值。
