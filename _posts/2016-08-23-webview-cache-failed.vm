@@ -1,0 +1,28 @@
+---
+layout: post
+title: webview 缓存失效
+tags: [webview, cache, failed]
+---
+
+最近一个app首页是嵌我们html页面，这个页面是有做缓存处理（无网络的时候加载上次的缓存内容），突然android同事跟我说我们的首页缓存时效，他试了百度等都可以。因为我们的页面用requirejs模块化，控制台报错来源是require加载不到资源。然后同事说是不是requirejs的问题（从此掉入以为是requirejs引起的怪圈，各种搜索）？
+
+翻遍搜索引擎都没有人因为requirejs引起。后面找 [音悦台](http://www.yinyuetai.com/) （也是用requirejs）给同事测试，完全正常。然后看了下音悦台的 `requirejs` 版本比较低一点，想来想去应该不至于是 `requirejs` 引起的吧。
+
+然后叫android那边打包一个写死我本地链接的app。连上电脑控制台发现资源加载失败的请求头是 `Provisional headers are shown`。
+
+Google了下关键字 `Provisional headers are shown` 发现 [解决provisional headers are shown的过程](http://blog.xinshangshangxin.com/2015/04/20/%E8%A7%A3%E5%86%B3provisional-headers-are-shown%E7%9A%84%E8%BF%87%E7%A8%8B/)
+
+文章里面说 
+
+> 大概是说 完全相同的请求间隔数毫秒(太短),导致加载失败
+
+> Provisional headers are shown
+> 出现在 载入缓存资源,请求没有被发送, 而如果上一个资源加载失败,可能导致从缓存加载的资源失败,
+> 即缓存资源请求之前的请求不能失败,不然就有可能出现问题
+
+再看了下 `network` 发现我们网站用的百度统计很可疑。注释掉测试成功。
+
+总结：百度统计连续发出的请求导致后面的请求都失败了。
+
+解决方案： app 嵌套的首页不执行百度统计
+
