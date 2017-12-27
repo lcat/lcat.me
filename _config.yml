@@ -12,7 +12,7 @@ title:               "lcat`s"
 tagline:             "龙腾虎跃"
 description:         "大浪淘金"
 url:                 /
-baseurl:             /
+baseurl:             ""
 paginate:            10
 
 # About/contact
