@@ -71,4 +71,19 @@ tags: [canvas, 透明, rgb]
 5. 怀疑 是不是透明点的 RGB 都变成 0 了。
 6. google
 7. [stackoverflow How to get rgb from transparent pixel in js](https://stackoverflow.com/questions/39744072/how-to-get-rgb-from-transparent-pixel-in-js) 
+
+
+
 结论：为了提高性能，画布底层缓冲区会对颜色进行预乘alpha，在写入缓冲区之前会乘以alpha值。canvas期待getImageData结果未预乘，这意味将从缓冲区取值除以alpha，来获取原始RGB值。这样带来问题：预乘会失去精度、完全透明(alpha = 0)的像素无法进行预乘除恢复(重点重点重点)
+
+> 原文
+>
+> Canvas underlying buffer store pixel using premultiplied alpha. When you draw rgba pixels, RGB part is multiplied by alpha value before being written to buffer.
+>
+> eg: (in ARGB) 0x8080FF40 will be stored as 0x80408020
+>
+> The canvas specification expect the result of getImageData to be un-premultiplied. It mean that the value read from the buffer is now divided by the alpha value, to get back the "original" RGB value.
+>
+> First the convertion is lossy, because premultiplied value lose precision.
+>
+>Secondely, the fully transparent pixel is the extreme case of "fully destructive loss of precision" because RGB value is store to buffer as zero, and cannot be retreived by un-premultipy it.
