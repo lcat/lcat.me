@@ -11,8 +11,8 @@ permalink:           pretty
 title:               "lcat`s"
 tagline:             "龙腾虎跃"
 description:         "大浪淘金"
-url:                 /lcat.me/
-baseurl:             ""
+url:                 /
+baseurl:             "/lcat.me"
 paginate:            10
 
 # About/contact
