@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            color: #fff;
+            background: #333;
+        }
+        h3 {
+            margin: 20px 0 0 20px;
+        }
+        .desc {
+            margin-left: 20px;
+            opacity: 0.3;
+            font-size: 12px;
+        }
+
+        :root {
+            --parmary-color: #b1a274;
+        }
+
+        .svg-fill {
+            fill: var(--primary-color);
+        }
+
+        .ani {
+            width: 100px;
+            height: 100px;
+            animation: loading 0.8s linear infinite;
+        }
+
+        @keyframes loading {
+            50% {
+                transform: rotate(180deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .filter {
+            filter: invert(75%) sepia(12%) saturate(902%) hue-rotate(8deg) brightness(85%) contrast(89%);
+        }
+        .img0 {
+            background: url(https://stage.meitudata.com/meitu-eve/meitu-eve/65542b5c147c115.png) 0 0 no-repeat;
+            background-size: contain;
+        }
+        .img1 {
+            background-color: #b1a274;
+            -webkit-mask: url(https://stage.meitudata.com/meitu-eve/meitu-eve/65542b5c147c115.png) 0 0 no-repeat;
+            -webkit-mask-size: 100% 100%;
+        }
+        .img2 {
+            overflow: hidden;
+        }
+        .img2-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            left: -100px;
+            background: url(https://stage.meitudata.com/meitu-eve/meitu-eve/65542b5c147c115.png) 0 0 no-repeat;
+            background-size: contain;
+            filter: drop-shadow(100px 0 0 #b1a274);
+            border-right: 100px solid transparent;
+        }
+        .img3 {
+            background: url(https://stage.meitudata.com/meitu-eve/meitu-eve/65542b5c147c115.png);
+            background-image: url(https://stage.meitudata.com/meitu-eve/meitu-eve/65542b5c147c115.png), linear-gradient(#b1a274, #b1a274);
+            background-blend-mode: lighten, normal;
+            background-size: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>原图：</h3>
+    <div class="ani img0"></div>
+
+    <h3>mask：</h3>
+    <div class="ani img1"></div>
+
+    <h3>drow-shadow</h3>
+    <div class="ani img2">
+        <div class="img2-inner"></div>
+    </div>
+
+    <h3>blend-mode：</h3>
+    <div class="desc">原图不是黑色白底，导致异常</div>
+    <div class="ani img3"></div>
+
+    <h3>filter：</h3>
+    <div class="desc">原图不是黑色的，导致滤镜后颜色不对</div>
+    <div class="ani img0 filter"></div>
+
+</body>
+
+</html>
